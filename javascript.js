@@ -102,8 +102,9 @@ function renderRows() {
 
   $(".saveBtn").on("click", function (event) {
     event.preventDefault();
-    console.log("renderRows -> event", event);
-    var hourToSave = event.currentTarget.classList[2];
-    console.log("renderRows -> hourToSave", hourToSave);
+    var hourRowToSave = event.currentTarget.classList[2];
+    var hourRowToSaveEl = $("." + hourRowToSave + "");
+    var toDoItem = hourRowToSaveEl.val();
+    localStorage.setItem(hourRowToSave, toDoItem);
   });
 }
