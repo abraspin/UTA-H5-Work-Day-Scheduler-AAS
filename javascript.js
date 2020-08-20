@@ -16,6 +16,7 @@ $(document).ready(function () {
   //     console.log("isBefore -> beginningTime", beginningTime);
   //   var beginningTime = moment().format().getHours;
   //   console.log("isBefore -> beginningTime", beginningTime);
+  console.log(moment());
 });
 //TODO: how am I linked to moment? did i do that?
 
@@ -61,16 +62,22 @@ function renderRows() {
     //  how do I use moment.js to compare ONLY the hour?
 
     //then we see if this hour row is before or after the current time, and assign its class accordingly (to be hooked with CSS)
-    if (moment(dayHour).isBefore(moment())) {
+    if (dayHour.isBefore(moment())) {
       newRow.addClass("past");
     }
-    if (moment(dayHour).isAfter(moment())) {
+    if (dayHour.isAfter(moment())) {
       newRow.addClass("future");
+    }
+    if (dayHour.isSame(moment(), "hour")) {
+      newRow.addClass("present");
     }
     // Then we add the 1st column, which contains the hour
     // TODO: experiment with a template literal here!!
     var hourColumn = $("<div class='hour col-md-3 border'></div>");
+    //the format method returns I think just a string
+    // this one line of code took like 20 minutes...one line...LEARNING!
     hourColumn.text(dayHour.format("ha"));
+
     newRow.append(hourColumn);
     // Next  we add the column which contains the todo item form
     // var toDoColumn = $("<input type='text' id='todo-input' class = 'col-md-4' placeholder='' name='todo-text'/>");
