@@ -43,7 +43,7 @@ function renderRows() {
     toDoColumn.addClass("row-" + i);
 
     //then we see if this hour row is before or after the current time, and assign THE FORM ELEMENT its
-    //  class accordingly (to be hooked with CSS)
+    //  class accordingly (to be hooked with CSS) for time-based coloring
     if (dayHour.isBefore(moment())) {
       toDoColumn.addClass("past");
     }
@@ -60,9 +60,12 @@ function renderRows() {
     // finally we add the third column, a save button
     var saveButtonColumn = $("<button  class = 'saveBtn col-md-3' />");
 
+    // and name it for future reference with loop index var
     saveButtonColumn.addClass("row-" + i);
+
     // and add the font awesome save disc icon. What's a flop-hee disk?
     saveButtonColumn.append($("<i class='fa fa-save fa-lg'></i>"));
+
     //append the button in all its splendor to the new row
     newRow.append(saveButtonColumn);
 
@@ -85,7 +88,7 @@ function prefill() {
     // fill the value of the form element with its corresponding todo item
     // $(".row-" + i).text(storedToDo);
     // $(".row-" + i).value = storedToDo;
-    $(".row-" + i).child.text("test!");
+    $(".row-" + i).val(storedToDo);
   }
 }
 
