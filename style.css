@@ -75,6 +75,11 @@ textarea {
   transition: all .3s ease-in-out;
 }
 
+.clear-hour {
+  border-radius: 15px;
+  margin-top: 25%;
+}
+
 /* TODO: I Really want to make it so when you hover over the BUTTON, 
           it changes the styling on the ICON */
 /* 

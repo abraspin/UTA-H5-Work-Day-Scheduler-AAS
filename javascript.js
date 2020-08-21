@@ -36,7 +36,7 @@ $(document).ready(function () {
     localStorage.setItem(hourRowToSave, toDoItem);
   });
   ///////////////////////CLEAR ALL TODOS  /////////////////
-  $(".clear-hour").on("click", function (event) {
+  $(".clear-hours-all").on("click", function (event) {
     console.log("clear hour clicked!");
     clearAllToDos();
   });
@@ -70,7 +70,7 @@ function renderRows() {
     // TODO: or have I gone the totally wrong way about setting up the relationship between button and form?
     // TODO: or is it just one more event listener that is independent of the button?
     // also get rid of that test ID
-    var toDoColumn = $("<input type='text' class='col-md-6' id='test' placeholder=''></input>");
+    var toDoColumn = $("<input type='text' class='col-md-5' id='test' placeholder=''></input>");
 
     //we need this tag to match it with its corresponding save button
     toDoColumn.addClass("row-" + i);
@@ -91,7 +91,7 @@ function renderRows() {
     //might have to do class and pass that pesky i
 
     // finally we add the third column, a save button
-    var saveButtonColumn = $("<button  class = 'saveBtn col-md-3' />");
+    var saveButtonColumn = $("<button  class = 'saveBtn col-md-2' />");
 
     // and name it for future reference with loop index var
     saveButtonColumn.addClass("row-" + i);
@@ -102,6 +102,7 @@ function renderRows() {
     //append the button in all its splendor to the new row
     newRow.append(saveButtonColumn);
 
+    renderClearRowButton(newRow);
     // add our beautiful new dynamically rendered hour row
     mainBodyEl.append(newRow);
   }
@@ -119,7 +120,7 @@ function prefill() {
 }
 
 function renderClearAllButton(bodyElement) {
-  var clearToDoButton = $("<button  class = 'clear-hour my-2 btn btn-primary  center col-md-3' />");
+  var clearToDoButton = $("<button  class = 'clear-hours-all my-2 btn btn-primary  center col-md-3' />");
   //TODO: how do I do a newline? /n? /r? /n/r/ ?? ?
   clearToDoButton.text("Click Here to clear all To-do's");
   bodyElement.append(clearToDoButton);
@@ -131,4 +132,14 @@ function clearAllToDos() {
     $(".row-" + i).val("");
     localStorage.setItem("row-" + i, "");
   }
+}
+
+function renderClearRowButton(rowElement) {
+  var newDiv = $("<div class='text-right'><div>");
+  var clearToDoButton = $("<button  class = 'clear-hour ml-4 text-right btn btn-primary  center ' />");
+  //TODO: how do I do a newline? /n? /r? /n/r/ ?? ?
+  // clearToDoButton.text("Click Here to clear all To-do's");
+  newDiv.append(clearToDoButton);
+  clearToDoButton.append($("<i class='fa fa-trash fa-lg'></i>"));
+  rowElement.append(newDiv);
 }
