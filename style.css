@@ -34,6 +34,7 @@ textarea {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
+  border-left: none;
   ;
 }
 
@@ -41,6 +42,8 @@ textarea {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  border-left: none;
+  padding-top: 2.75%;
 }
 
 .past {
@@ -59,6 +62,7 @@ textarea {
 }
 
 .saveBtn {
+  /* border-color: yellow; */
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;

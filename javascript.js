@@ -60,7 +60,7 @@ function renderRows() {
 
     // Then we add the 1st column, which contains the hour
     // TODO: experiment with a template literal here!!
-    var hourColumn = $("<div class='text-right hour col-md-3 border'></div>");
+    var hourColumn = $("<div class='text-right hour col-md-3'></div>");
     // this one line of code took like 20 minutes...one line...LEARNING!
     hourColumn.text(dayHour.format("ha"));
     newRow.append(hourColumn);
@@ -119,7 +119,7 @@ function prefill() {
 }
 
 function renderClearAllButton(bodyElement) {
-  var clearToDoButton = $("<button  class = 'clear-hour btn btn-primary  center col-md-3' />");
+  var clearToDoButton = $("<button  class = 'clear-hour my-2 btn btn-primary  center col-md-3' />");
   //TODO: how do I do a newline? /n? /r? /n/r/ ?? ?
   clearToDoButton.text("Click Here to clear all To-do's");
   bodyElement.append(clearToDoButton);
