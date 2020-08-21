@@ -1,7 +1,6 @@
 // First thing we do is wrap everything up in a nice document.ready call
 $(document).ready(function () {
   $("#currentDay").html(moment().format("dddd, MMMM Do YYYY"));
-
   //call function to render the row elements
   renderRows();
 
@@ -35,12 +34,33 @@ $(document).ready(function () {
     // save the todo item to local storage with key "row-#"
     localStorage.setItem(hourRowToSave, toDoItem);
   });
+
+  /////////////////// CLEAR SINGLE TODO ////////////////////
+  $(".clear-hour").on("click", function (event) {
+    // event.preventDefault();
+    console.log("im the clear hour function");
+    // hourRowToClear will have format "row-#"
+
+    var hourRowToClear = event.currentTarget.classList[6];
+    console.log("hourRowToClear", hourRowToClear);
+
+    // // this is a reference to the entire row element containing hour, input, and save
+    var hourRowToClearEl = $("." + hourRowToClear + "");
+
+    // // this variable contains the todo string the user just saved
+    // // var toDoItem = hourRowToSaveEl.val();
+    hourRowToClearEl.val("");
+    // console.log("toDoItem", toDoItem);
+
+    // // save the todo item to local storage with key "row-#"
+    localStorage.setItem(hourRowToClear, "");
+  });
   ///////////////////////CLEAR ALL TODOS  /////////////////
   $(".clear-hours-all").on("click", function (event) {
-    console.log("clear hour clicked!");
     clearAllToDos();
   });
 });
+
 //how am I linked to moment? did i do that? is it part of javscript?
 
 ////////////////////////////////////////RENDER ROWS//////////////////////////////////////////
@@ -102,7 +122,7 @@ function renderRows() {
     //append the button in all its splendor to the new row
     newRow.append(saveButtonColumn);
 
-    renderClearRowButton(newRow);
+    renderClearRowButton(newRow, i);
     // add our beautiful new dynamically rendered hour row
     mainBodyEl.append(newRow);
   }
@@ -134,9 +154,10 @@ function clearAllToDos() {
   }
 }
 
-function renderClearRowButton(rowElement) {
+function renderClearRowButton(rowElement, i) {
   var newDiv = $("<div class='text-right'><div>");
-  var clearToDoButton = $("<button  class = 'clear-hour ml-4 text-right btn btn-primary  center ' />");
+  var clearToDoButton = $("<button  class = 'clear-hour ml-4 text-right btn btn-danger  center ' />");
+  clearToDoButton.addClass("row-" + i);
   //TODO: how do I do a newline? /n? /r? /n/r/ ?? ?
   // clearToDoButton.text("Click Here to clear all To-do's");
   newDiv.append(clearToDoButton);
