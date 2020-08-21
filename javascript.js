@@ -8,20 +8,37 @@ $(document).ready(function () {
   // call the function to prefill todo fields with pre-saved to-do strings
   prefill();
 
+  // this function adds the clear all button
+  renderClearAllButton($("#main-body"));
+
   // uhhh apparently event listeners need to be inside of the document.ready??? I am so sure it was working before with
   // it all the way at the end and I'm absolutely bewildered why suddenly it stopped saving until i moved it here...
   /////////////////////////EVENT LISTENERS/////////////////////////
+  /////////////////////////////////////////////////////////////////
+  ///////////////////////INDIVIDUAL SAVE BUTTONS /////////////////
   $(".saveBtn").on("click", function (event) {
     //TODO:   is this prevent default necessary?
-    console.log("I got clicked!");
     event.preventDefault();
+    console.log("I got clicked!");
+
+    // hourRowToSave will have format "row-#"
     var hourRowToSave = event.currentTarget.classList[2];
     console.log("hourRowToSave", hourRowToSave);
 
+    // this is a reference to the entire row element containing hour, input, and save
     var hourRowToSaveEl = $("." + hourRowToSave + "");
+
+    // this variable contains the todo string the user just saved
     var toDoItem = hourRowToSaveEl.val();
     console.log("toDoItem", toDoItem);
+
+    // save the todo item to local storage with key "row-#"
     localStorage.setItem(hourRowToSave, toDoItem);
+  });
+  ///////////////////////CLEAR ALL TODOS  /////////////////
+  $(".clear-hour").on("click", function (event) {
+    console.log("clear hour clicked!");
+    clearAllToDos();
   });
 });
 //how am I linked to moment? did i do that? is it part of javscript?
@@ -98,5 +115,20 @@ function prefill() {
     console.log("prefill -> storedToDo", storedToDo);
 
     $(".row-" + i).val(storedToDo);
+  }
+}
+
+function renderClearAllButton(bodyElement) {
+  var clearToDoButton = $("<button  class = 'clear-hour btn btn-primary  center col-md-3' />");
+  //TODO: how do I do a newline? /n? /r? /n/r/ ?? ?
+  clearToDoButton.text("Click Here to clear all To-do's");
+  bodyElement.append(clearToDoButton);
+}
+
+//this function goes through and sets all the text values to "" out all to-do inputs
+function clearAllToDos() {
+  for (var i = 9; i < 18; i++) {
+    $(".row-" + i).val("");
+    localStorage.setItem("row-" + i, "");
   }
 }
