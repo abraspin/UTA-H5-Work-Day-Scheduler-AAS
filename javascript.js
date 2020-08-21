@@ -7,6 +7,22 @@ $(document).ready(function () {
 
   // call the function to prefill todo fields with pre-saved to-do strings
   prefill();
+
+  // uhhh apparently event listeners need to be inside of the document.ready??? I am so sure it was working before with
+  // it all the way at the end and I'm absolutely bewildered why suddenly it stopped saving until i moved it here...
+  /////////////////////////EVENT LISTENERS/////////////////////////
+  $(".saveBtn").on("click", function (event) {
+    //TODO:   is this prevent default necessary?
+    console.log("I got clicked!");
+    event.preventDefault();
+    var hourRowToSave = event.currentTarget.classList[2];
+    console.log("hourRowToSave", hourRowToSave);
+
+    var hourRowToSaveEl = $("." + hourRowToSave + "");
+    var toDoItem = hourRowToSaveEl.val();
+    console.log("toDoItem", toDoItem);
+    localStorage.setItem(hourRowToSave, toDoItem);
+  });
 });
 //how am I linked to moment? did i do that? is it part of javscript?
 
@@ -73,10 +89,6 @@ function renderRows() {
     mainBodyEl.append(newRow);
   }
 }
-//TODO:
-//FIXME://TODO:
-//FIXME://TODO:
-//FIXME:
 
 ////////////////////////PRE FILL PAGE FROM LOCAL STORAGE FUNCTION//////////////////
 function prefill() {
@@ -85,19 +97,6 @@ function prefill() {
     var storedToDo = localStorage.getItem("row-" + i) || "";
     console.log("prefill -> storedToDo", storedToDo);
 
-    // fill the value of the form element with its corresponding todo item
-    // $(".row-" + i).text(storedToDo);
-    // $(".row-" + i).value = storedToDo;
     $(".row-" + i).val(storedToDo);
   }
 }
-
-/////////////////////////EVENT LISTENERS/////////////////////////
-$(".saveBtn").on("click", function (event) {
-  //TODO:   is this prevent default necessary?
-  event.preventDefault();
-  var hourRowToSave = event.currentTarget.classList[2];
-  var hourRowToSaveEl = $("." + hourRowToSave + "");
-  var toDoItem = hourRowToSaveEl.val();
-  localStorage.setItem(hourRowToSave, toDoItem);
-});
