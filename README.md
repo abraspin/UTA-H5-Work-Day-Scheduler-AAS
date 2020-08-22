@@ -25,12 +25,7 @@ https://abraspin.github.io/UTA-H5-Work-Day-Scheduler-AAS/
 ## Example
 
 
-<img src="./Assets/app-screenshot.png" alt="Screenshot of App" width="250" height="200" />
-
-![Image of Yaktocat](//octodex.github.com/images/yaktocat.png=100x100)
-
-
-![Image of Yaktocat](https://github.com/abraspin/UTA-H5-Work-Day-Scheduler-AAS/blob/master/Assets/app-screenshot.PNG)
+![Image of Yaktocat](https://github.com/abraspin/UTA-H5-Work-Day-Scheduler-AAS/blob/master/Assets/app-screenshot.PNG=100x100)
 
 
 ---
