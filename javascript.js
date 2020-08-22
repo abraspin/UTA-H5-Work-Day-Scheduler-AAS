@@ -1,5 +1,6 @@
 // First thing we do is wrap everything up in a nice document.ready call
 $(document).ready(function () {
+  //set the top box to display the current date
   $("#currentDay").html(moment().format("dddd, MMMM Do YYYY"));
   //call function to render the row elements
   renderRows();
@@ -90,7 +91,8 @@ function renderRows() {
     // TODO: or have I gone the totally wrong way about setting up the relationship between button and form?
     // TODO: or is it just one more event listener that is independent of the button?
     // also get rid of that test ID
-    var toDoColumn = $("<input type='text' class='col-md-5' id='test' placeholder=''></input>");
+    //TODO: this is the col-md class I modify to fit the delete button
+    var toDoColumn = $("<input type='text' class='col-md-7' id='test' placeholder=''></input>");
 
     //we need this tag to match it with its corresponding save button
     toDoColumn.addClass("row-" + i);
@@ -122,7 +124,10 @@ function renderRows() {
     //append the button in all its splendor to the new row
     newRow.append(saveButtonColumn);
 
-    renderClearRowButton(newRow, i);
+    //TODO:
+    // Render the button on the end of each row to clear that row only
+    // renderClearRowButton(newRow, i);
+
     // add our beautiful new dynamically rendered hour row
     mainBodyEl.append(newRow);
   }
@@ -156,10 +161,8 @@ function clearAllToDos() {
 
 function renderClearRowButton(rowElement, i) {
   var newDiv = $("<div class='text-right'><div>");
-  var clearToDoButton = $("<button  class = 'clear-hour ml-4 text-right btn btn-danger  center ' />");
+  var clearToDoButton = $("<button  class = 'clear-hour ml-5 text-right btn btn-danger  center ' />");
   clearToDoButton.addClass("row-" + i);
-  //TODO: how do I do a newline? /n? /r? /n/r/ ?? ?
-  // clearToDoButton.text("Click Here to clear all To-do's");
   newDiv.append(clearToDoButton);
   clearToDoButton.append($("<i class='fa fa-trash fa-lg'></i>"));
   rowElement.append(newDiv);
