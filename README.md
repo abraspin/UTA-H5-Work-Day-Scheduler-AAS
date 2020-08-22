@@ -14,9 +14,11 @@ A simple daily calendar application. Users can save activities to the hour in a 
 
 The assignment was to build a daily work day calendar scheduling application. The current date, time blocks, and buttons, are dynamically updated HTML using JavaScript and jQuery. Each time block is color-coded to indicate whether it is before or after the current time, using the moment.js libary. Local storage is utilized to save to-do items. It is responsive to multiple sc
 
+---
 
 
-
+##Example
+![Screenshot of Application](./Assets/app-screenshot.PNG)
 
 
 ---
