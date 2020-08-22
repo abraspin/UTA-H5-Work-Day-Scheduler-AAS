@@ -25,7 +25,7 @@ https://abraspin.github.io/UTA-H5-Work-Day-Scheduler-AAS/
 ## Example
 
 
-![Image of Yaktocat](https://github.com/abraspin/UTA-H5-Work-Day-Scheduler-AAS/blob/master/Assets/app-screenshot.PNG=100x100)
+![Screenshot of deployed app](https://github.com/abraspin/UTA-H5-Work-Day-Scheduler-AAS/blob/master/Assets/app-screenshot.PNG=50%)
 
 
 ---
