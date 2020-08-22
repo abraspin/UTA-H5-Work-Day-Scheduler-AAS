@@ -20,13 +20,11 @@ The assignment was to build a daily work day calendar scheduling application. Th
 
 https://abraspin.github.io/UTA-H5-Work-Day-Scheduler-AAS/
 
-
 ---
 
 ## Example
 
-![Screenshot of Application](./Assets/app-screenshot.PNG=100x100)
-
+![Screenshot of Application](./Assets/app-screenshot.PNG)
 
 ---
 
@@ -53,7 +51,6 @@ Author: Abraham Spindel
 ---
 
 ## Badges
-
 
 ---
 

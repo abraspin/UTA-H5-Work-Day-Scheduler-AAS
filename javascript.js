@@ -11,7 +11,7 @@ $(document).ready(function () {
   // this function adds the clear all button
   renderClearAllButton($("#main-body"));
 
-  // uhhh apparently event listeners need to be inside of the document.ready??? I am so sure it was working before with
+  //  apparently event listeners need to be inside of the document.ready??? I am so sure it was working before with
   // it all the way at the end and I'm absolutely bewildered why suddenly it stopped saving until i moved it here...
   /////////////////////////EVENT LISTENERS/////////////////////////
   /////////////////////////////////////////////////////////////////
@@ -82,7 +82,8 @@ function renderRows() {
     // Then we add the 1st column, which contains the hour
     // TODO: experiment with a template literal here!!
     var hourColumn = $("<div class='text-right hour col-md-3'></div>");
-    // this one line of code took like 20 minutes...one line...LEARNING!
+
+    //format and append the hour for this row
     hourColumn.text(dayHour.format("ha"));
     newRow.append(hourColumn);
 
@@ -167,3 +168,5 @@ function renderClearRowButton(rowElement, i) {
   clearToDoButton.append($("<i class='fa fa-trash fa-lg'></i>"));
   rowElement.append(newDiv);
 }
+
+//TODO: README embedded picture size control?
