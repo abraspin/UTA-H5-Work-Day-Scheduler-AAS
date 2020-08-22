@@ -27,7 +27,11 @@ https://abraspin.github.io/UTA-H5-Work-Day-Scheduler-AAS/
 
 <img src="./Assets/app-screenshot.png" alt="Screenshot of App" width="250" height="200" />
 
-! [Screenshot of App](Assets/app-screenshot.png)
+![Image of Yaktocat](//octodex.github.com/images/yaktocat.png)
+
+
+![Image of Yaktocat](https://github.com/abraspin/UTA-H5-Work-Day-Scheduler-AAS/blob/master/Assets/app-screenshot.PNG)
+
 
 ---
 
