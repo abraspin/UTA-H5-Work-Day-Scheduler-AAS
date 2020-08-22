@@ -1,7 +1,10 @@
+//TODO: README embedded picture size control?
+
 // First thing we do is wrap everything up in a nice document.ready call
 $(document).ready(function () {
   //set the top box to display the current date
   $("#currentDay").html(moment().format("dddd, MMMM Do YYYY"));
+
   //call function to render the row elements
   renderRows();
 
@@ -11,26 +14,27 @@ $(document).ready(function () {
   // this function adds the clear all button
   renderClearAllButton($("#main-body"));
 
-  //  apparently event listeners need to be inside of the document.ready??? I am so sure it was working before with
+  // TODO: apparently event listeners need to be inside of the document.ready??? I am so sure it was working before with
   // it all the way at the end and I'm absolutely bewildered why suddenly it stopped saving until i moved it here...
   /////////////////////////EVENT LISTENERS/////////////////////////
   /////////////////////////////////////////////////////////////////
+
   ///////////////////////INDIVIDUAL SAVE BUTTONS /////////////////
   $(".saveBtn").on("click", function (event) {
     //TODO:   is this prevent default necessary?
     event.preventDefault();
-    console.log("I got clicked!");
+    // console.log("I got clicked!");
 
     // hourRowToSave will have format "row-#"
     var hourRowToSave = event.currentTarget.classList[2];
-    console.log("hourRowToSave", hourRowToSave);
+    // console.log("hourRowToSave", hourRowToSave);
 
     // this is a reference to the entire row element containing hour, input, and save
     var hourRowToSaveEl = $("." + hourRowToSave + "");
 
     // this variable contains the todo string the user just saved
     var toDoItem = hourRowToSaveEl.val();
-    console.log("toDoItem", toDoItem);
+    // console.log("toDoItem", toDoItem);
 
     // save the todo item to local storage with key "row-#"
     localStorage.setItem(hourRowToSave, toDoItem);
@@ -39,11 +43,12 @@ $(document).ready(function () {
   /////////////////// CLEAR SINGLE TODO ////////////////////
   $(".clear-hour").on("click", function (event) {
     // event.preventDefault();
-    console.log("im the clear hour function");
+    // console.log("im the clear hour function");
     // hourRowToClear will have format "row-#"
 
+    //This is an awful magic number that refers to the class name of the row we're currently referring to
     var hourRowToClear = event.currentTarget.classList[6];
-    console.log("hourRowToClear", hourRowToClear);
+    // console.log("hourRowToClear", hourRowToClear);
 
     // // this is a reference to the entire row element containing hour, input, and save
     var hourRowToClearEl = $("." + hourRowToClear + "");
@@ -56,13 +61,14 @@ $(document).ready(function () {
     // // save the todo item to local storage with key "row-#"
     localStorage.setItem(hourRowToClear, "");
   });
+
   ///////////////////////CLEAR ALL TODOS  /////////////////
   $(".clear-hours-all").on("click", function (event) {
     clearAllToDos();
   });
 });
 
-//how am I linked to moment? did i do that? is it part of javscript?
+////////////////////////////////////////FUNCTIONS////////////////////////////////////////////
 
 ////////////////////////////////////////RENDER ROWS//////////////////////////////////////////
 function renderRows() {
@@ -98,8 +104,8 @@ function renderRows() {
     //we need this tag to match it with its corresponding save button
     toDoColumn.addClass("row-" + i);
 
-    //then we see if this hour row is before or after the current time, and assign THE FORM ELEMENT its
-    //  class accordingly (to be hooked with CSS) for time-based coloring
+    // then we see if this hour row is before or after the current time, and assign THE FORM ELEMENT its
+    // class accordingly (to be hooked with CSS) for time-based coloring
     if (dayHour.isBefore(moment())) {
       toDoColumn.addClass("past");
     }
@@ -145,6 +151,7 @@ function prefill() {
   }
 }
 
+////////////////////////RENDER THE BOTTOM 'CLEAR ALL' BUTTON//////////////////
 function renderClearAllButton(bodyElement) {
   var clearToDoButton = $("<button  class = 'clear-hours-all my-2 btn btn-primary  center col-md-3' />");
   //TODO: how do I do a newline? /n? /r? /n/r/ ?? ?
@@ -152,6 +159,7 @@ function renderClearAllButton(bodyElement) {
   bodyElement.append(clearToDoButton);
 }
 
+////////////////////////CLEAR ALL TODOS FUNCTION //////////////////
 //this function goes through and sets all the text values to "" out all to-do inputs
 function clearAllToDos() {
   for (var i = 9; i < 18; i++) {
@@ -160,6 +168,7 @@ function clearAllToDos() {
   }
 }
 
+////////////////////////RENDER INDIVIDUAL ROW-CLEAR BUTTONS //////////////////
 function renderClearRowButton(rowElement, i) {
   var newDiv = $("<div class='text-right'><div>");
   var clearToDoButton = $("<button  class = 'clear-hour ml-5 text-right btn btn-danger  center ' />");
@@ -168,5 +177,3 @@ function renderClearRowButton(rowElement, i) {
   clearToDoButton.append($("<i class='fa fa-trash fa-lg'></i>"));
   rowElement.append(newDiv);
 }
-
-//TODO: README embedded picture size control?
