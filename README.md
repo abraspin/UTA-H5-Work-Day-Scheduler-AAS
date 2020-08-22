@@ -37,6 +37,7 @@ https://abraspin.github.io/UTA-H5-Work-Day-Scheduler-AAS/
 * CSS Style Sheet
 * This README file
 * Assignment Parameters
+* Sample Screenshot of App 
 
 ---
 
