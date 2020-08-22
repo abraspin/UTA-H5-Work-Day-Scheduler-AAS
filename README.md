@@ -24,8 +24,9 @@ https://abraspin.github.io/UTA-H5-Work-Day-Scheduler-AAS/
 
 ## Example
 
-<img src="./Assets/app-screenshot.png" alt="Screenshot of App" width="250" height="200" />
 
+<img src="./Assets/app-screenshot.png" alt="Screenshot of App" width="250" height="200" />
+![Screenshot of App](./Assets/app-screenshot.png)
 ---
 
 ## Contents
