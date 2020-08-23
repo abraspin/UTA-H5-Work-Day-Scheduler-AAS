@@ -142,7 +142,7 @@ function prefill() {
 
 ////////////////////////RENDER THE BOTTOM 'CLEAR ALL' BUTTON//////////////////
 function renderClearAllButton(bodyElement) {
-  var clearToDoButton = $("<button  class = 'clear-hours-all my-2 btn btn-primary  center col-md-3' />");
+  var clearToDoButton = $("<button  class = 'clear-hours-all my-2 btn btn-primary  center ' />");
   clearToDoButton.text("Click Here to clear all To-do's");
 
   bodyElement.append(clearToDoButton);
