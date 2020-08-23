@@ -76,7 +76,7 @@ function renderRows() {
   for (var i = 9; i < 18; i++) {
     // Building block for each hour element,
     // starting with a div with ID classes for hour names (can't figure out how to dynamically add id oh well)
-    var newRow = $("<div class='row col-md-12 '>  </div>");
+    var newRow = $("<div class='row col-md-12 mx-auto'>  </div>");
     newRow.addClass("row-wrapper-" + i);
 
     // this variable holds the time of day each hour row represents
