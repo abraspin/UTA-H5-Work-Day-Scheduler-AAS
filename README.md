@@ -18,7 +18,7 @@ The assignment was to build a daily work day calendar scheduling application. Th
 
 ## Link to Deployed Application
 
-https://abraspin.github.io/UTA-H5-Work-Day-Scheduler-AAS/
+https://abraspin.github.io/Work-Day-Scheduler/
 
 ---
 
